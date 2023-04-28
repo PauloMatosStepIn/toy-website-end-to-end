@@ -33,7 +33,6 @@ var logAnalyticsWorkspaceName = 'workspace-${resourceNameSuffix}'
 var applicationInsightsName = 'toywebsite'
 var storageAccountName = 'mystorage${resourceNameSuffix}'
 var storageAccountImagesBlobContainerName = 'toyimages'
-
 var sqlServerName = 'toy-website-${resourceNameSuffix}'
 var sqlDatabaseName = 'Toys'
 
@@ -154,6 +153,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   location: location
   kind: 'StorageV2'
   sku: environmentConfigurationMap[environmentType].storageAccount.sku
+
   resource blobService 'blobServices' = {
     name: 'default'
 
